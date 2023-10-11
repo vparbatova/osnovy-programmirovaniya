@@ -47,31 +47,31 @@ int main()
 		cout << "Введите 2 числа, сначала делимое, потом делитель:" << "\n";
 		cout << del(a, b) << "\n";
 	}
+	else
+	{
+		cout << "Недопустимый оператор";
+	}
 	return 0;
 }
 
 int sum(int a, int b)
 {
-	cin >> a;
-	cin >> b;
+	cin >> a >> b;
 	return (a + b);
 }
 int razn(int a, int b)
 {
-	cin >> a;
-	cin >> b;
+	cin >> a >> b;
 	return (a - b);
 }
 int mnoj(int a, int b)
 {
-	cin >> a;
-	cin >> b;
+	cin >> a >> b;
 	return (a * b);
 }
 float del(int a, int b)
 {
-	cin >> a;
-	cin >> b;
+	cin >> a >> b;
 	if (b == 0)
 	{
 		while (b == 0)
@@ -84,14 +84,12 @@ float del(int a, int b)
 }
 int step(int a, int b)
 {
-	cin >> a;
-	cin >> b;
+	cin >> a >> b;
 	return pow(a, b);
 }
 float koren(int a, int b)
 {
-	cin >> a;
-	cin >> b;
+	cin >> a >> b;
 	if (a < 0 and b % 2 == 0)
 	{
 		while (a < 0 and b % 2 == 0)
