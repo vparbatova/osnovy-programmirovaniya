@@ -5,87 +5,120 @@ using namespace std;
 class Animal
 {
 public:
-	string react, eat, talk;
-	int act;
-	void Povedenie(int act) 
+	string animal, data;
+	virtual void Eat()
 	{
-		if (act <= 3) this->act = act;
-		else cout << "Нет такого действия";
-		if (act == 1)
-		{
-			cout << react;
-		}
-		if (act == 2)
-		{
-			cout << talk;
-		}
-		if (act == 3)
-		{
-			cout << eat;
-		}
+		cout << animal << data << endl;
+	}
+	virtual void Talk()
+	{
+		cout << animal << data << endl;
+	}
+	virtual void Fly()
+	{
+		cout << animal << data << endl;
+	}
+	virtual void Information()
+	{
+		cout << animal << data << endl;
 	}
 };
 
 class Popygay : public Animal
 {
 public:
-	void Deyst()
+	string inf;
+	bool isFly;
+	bool isTalk;
+
+	void Jump()
 	{
-		react = "Ура!";
-		talk = "Очень приятно пообщаться";
-		eat = "Спасибо, очень вкусно!";
-		cout << "Введите действие\n" << "1 - погладить, 2 - поговорить, 3 - поесть";
-		cin >> act;
-		Povedenie(act);
+		cout << animal << " not jump:(" << endl;
+	}
+	void Information() override
+	{
+		cout << animal << inf << endl;
+	}
+	void Fly() override
+	{
+		cout << animal << " is fly" << endl;
+	}
+	void Talk() override
+	{
+		cout << animal << " is talk" << endl;
 	}
 };
 class Tiger : public Animal
 {
 public:
-	void Deyst()
+	string inf;
+	bool isFly;
+
+	void Jump()
 	{
-		react = "Откусил руку";
-		talk = "Рррррррр";
-		eat = "Ладно, теперь может и погладить получится";
-		cout << "Введите действие\n" << "1 - погладить, 2 - поговорить, 3 - поесть";
-		cin >> act;
-		Povedenie(act);
+		cout << animal << " is jump:)" << endl;
+	}
+	void Information() override
+	{
+		cout << animal << inf << endl;
+	}
+	void Fly() override
+	{
+		cout << animal << "is fly" << endl;
+	}
+	void Eat()
+	{
+		cout << animal << " eats meat" << endl;
 	}
 };
 class Cat : public Animal
 {
 public:
-	void Deyst()
+	bool isFly;
+	string inf;
+	void Information() override
 	{
-		react = "Мур";
-		talk = "Мяу";
-		eat = "Спасибо";
-		cout << "Введите действие\n" << "1 - погладить, 2 - поговорить, 3 - покормить\n";
-		cin >> act;
-		Povedenie(act);
+		cout << animal << inf << endl;
+	}
+	void Fly() override
+	{
+		cout << animal << " is not fly" << endl;
+	}
+	void Jump()
+	{
+		cout << animal << " is jump:)" << endl;
 	}
 };
 int main()
 {
-	setlocale(LC_ALL, "rus");
+	Cat cat;
+	Tiger tig;
+	Popygay pop;
 
-	int pers;
-	cout << "Введите животное\n" << "1 - попугай, 2 - тигр, 3 - кошка\n";
-	cin >> pers;
-	if (pers == 1)
-	{
-		Popygay pers;
-		pers.Deyst();
-	}
-	if (pers == 2)
-	{
-		Tiger pers;
-		pers.Deyst();
-	}
-	if (pers == 3)
-	{
-		Cat pers;
-		pers.Deyst();
-	}
-	return 0;
+	cat.inf = " they like home. Peoples love them so much";
+	cat.isFly = false;
+
+	tig.inf = " They are big pets, they likes hot weather and meat";
+	tig.isFly = false;
+
+	pop.inf = " They are not big pets, they likes hot weather";
+	pop.isTalk = true;
+	pop.isFly = true;
+
+	cat.animal = "Cat";
+	cat.Fly();
+	cat.Jump();
+	cat.Information();
+
+	tig.animal = "Tiger";
+	tig.Information();
+	tig.Jump();
+	tig.Fly();
+	tig.Eat();
+
+	pop.animal = "Parrot";
+	pop.Jump();
+	pop.Information();
+	pop.Fly();
+	pop.Talk();
 }
